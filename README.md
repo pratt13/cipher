@@ -5,8 +5,7 @@
 Given a large string, decipher the message knowing that it has been shifted by 4 each time.
 
 ```sh
-python3 cipher_challenge.py --type constant --value 4 -i example.txt -o encoded_constant.txt -e
-python3 cipher_challenge.py --type constant --value 4 -i encoded_constant.txt -o decoded_constant.txt
+python3 cipher_challenge.py --type constant --value 4 -i files/encoded_constant.txt -o files/decoded_constant.txt
 ```
 
 ## Challenge 2
@@ -18,8 +17,7 @@ A bat -> B dcv
 ```
 
 ```sh
-python3 cipher_challenge.py --type increasing -i example.txt -o encoded_shift.txt -e
-python3 cipher_challenge.py --type increasing  -i encoded_shift.txt -o decoded_shift.txt
+python3 cipher_challenge.py --type increasing  -i files/encoded_shift.txt -o files/decoded_shift.txt
 ```
 ## Challenge 3
 
@@ -27,8 +25,7 @@ The message has been shifted by a constant amount, but you don't know what. All 
 
 
 ```sh
-python3 cipher_challenge.py --type random -i example.txt -o encoded_random.txt -e
-python3 cipher_challenge.py --type random  -i encoded_random.txt -o decoded_random.txt --key-word kermit
+python3 cipher_challenge.py --type random  -i files/encoded_random.txt -o files/decoded_random.txt --key-word kermit
 ```
 
 ## Challenge 4

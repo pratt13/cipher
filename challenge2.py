@@ -1,26 +1,12 @@
 from BaseCipher import BaseCipher
-from Utils import ALPHABET, UtilMixin
 
 
-class ChallengeTwo(BaseCipher, UtilMixin):
-    def encoding_data(self, data):
-        return self.shuffle_str(data)
+class ChallengeTwo(BaseCipher):
 
     def decoding_data(self, data):
-        return self.shuffle_str(data, encode=False)
-
-    def shuffle_str(self, lines, encode=True):
-        factor = 1 if encode else -1
-        result = []
-        for shift, word in enumerate(lines, start=1):
-            result += [
-                "".join(
-                    [
-                        self.shuffle_letter(w.lower(), factor * shift)
-                        if w.lower() in ALPHABET
-                        else w
-                        for w in word
-                    ]
-                )
-            ]
-        return " ".join(result)
+        """The task is to implement this method.
+        The data is shuffled by n for the nth index.
+        For example, if the word was ABBA -> BDEE.
+        The first letter is shifted by 1, the second by 2, so on and so on.
+        """
+        raise NotImplementedError

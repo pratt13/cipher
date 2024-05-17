@@ -1,10 +1,9 @@
 from BaseCipher import BaseCipher
-from Utils import UtilMixin
 
 
-class ChallengeOne(BaseCipher, UtilMixin):
-    def encoding_data(self, data, shift):
-        return self.shuffle_str_by_n(data, shift)
-
+class ChallengeOne(BaseCipher):
     def decoding_data(self, data, shift):
-        return self.shuffle_str_by_n(data, -shift)
+        """The task is to implement this method.
+        The data is shifted by the 'shift' amount.
+        """
+        raise NotImplementedError

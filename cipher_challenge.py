@@ -34,12 +34,6 @@ if __name__ == "__main__":
         help="The word being searched for the random shift.",
     )
     parser.add_argument(
-        "--encode",
-        "-e",
-        action="store_true",
-        help="Whether to encode a file, if set encode it, else it will decode it.",
-    )
-    parser.add_argument(
         "--input_filename",
         "-i",
         type=str,
@@ -59,26 +53,17 @@ if __name__ == "__main__":
         # Constant shift value is required
         if not args.value:
             raise ValueError(f"When choosing {args.type} is selected, value must be provided")
-        if args.encode:
-            challengeOne.encode_file(args.input_filename, args.output_filename, args.value)
-        else:
-            challengeOne.decode_file(args.input_filename, args.output_filename, args.value)
+        challengeOne.decode_file(args.input_filename, args.output_filename, args.value)
     elif args.type == "increasing":
 
         challengeTwo = ChallengeTwo()
-        if args.encode:
-            challengeTwo.encode_file(args.input_filename, args.output_filename)
-        else:
-            challengeTwo.decode_file(args.input_filename, args.output_filename)
+        challengeTwo.decode_file(args.input_filename, args.output_filename)
     elif args.type == "random":
         challengeThree = ChallengeThree()
-        if args.encode:
-            challengeThree.encode_file(args.input_filename, args.output_filename)
-        else:
-            if not args.key_word:
-                raise ValueError(
-                    f"Cannot decode a message using {args.type} with no `--key-word` argument"
-                )
-            challengeThree.decode_file(args.input_filename, args.output_filename, args.key_word)
+        if not args.key_word:
+            raise ValueError(
+                f"Cannot decode a message using {args.type} with no `--key-word` argument"
+            )
+        challengeThree.decode_file(args.input_filename, args.output_filename, args.key_word)
     else:
         raise ValueError(f"Unexpected type: {args.type}")
